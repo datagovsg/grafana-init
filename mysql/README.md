@@ -48,3 +48,6 @@ Now run:
 ```bash
 docker run --rm -it --env-file .env datagovsg/grafana-init:mysql
 ```
+
+If the `docker` session runs successfully, this means that the `session` table
+has been created properly.
