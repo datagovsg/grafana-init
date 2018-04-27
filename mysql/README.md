@@ -24,34 +24,27 @@ so that it has the necessary information to create the table(s).
 
 ## How to use
 
-Make sure that you have `curl` and `docker` commands available. If you want to
-perform self-build, you will need `git` command also.
+Make sure that you have `curl` and `docker` commands available first.
 
-Go to any empty directory. Now copy the template `.env` file by performing:
+Go to any empty directory, and download the template `.env` file by performing:
 
 ```bash
-curl -O
+curl -O https://raw.githubusercontent.com/datagovsg/grafana-init/develop/mysql/.env
 ```
 
-This repository provides two methods to make it easier to use the Docker set-up.
+Amend the downloaded `.env` file by filling in the values into the given
+template.
 
-CURL TODO.
-
-You will first need to amend the [`.env`](./.env) file and fill in the values
-in the given template.
-
-### Pull method
-
-Run the following:
+Next run the following:
 
 ```bash
 docker pull datagovsg/grafana-init:mysql
-docker run --rm -it --env-file .env datagovsg/grafana-init:mysql
 ```
 
-### Self-build method
+This pulls the Grafana MySQL session initialization image for use.
+
+Now run:
 
 ```bash
-docker build . -t datagovsg/grafana-init:mysql
 docker run --rm -it --env-file .env datagovsg/grafana-init:mysql
 ```
